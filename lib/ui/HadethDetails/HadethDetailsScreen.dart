@@ -26,7 +26,7 @@ class HadethDetailsScreen extends StatelessWidget {
                       textAlign: TextAlign.center,
                       style: TextStyle(
                         fontSize: 20,
-                      ),
+                      ),  
                                   ),
                     ),
                   
