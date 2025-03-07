@@ -1,8 +1,10 @@
 import 'package:flutter/material.dart';
+import 'package:islami_app/ui/MyThemeData.dart';
 import 'package:islami_app/ui/home/hadeth/hadethTap.dart';
 import 'package:islami_app/ui/home/quran/quranTap.dart';
 import 'package:islami_app/ui/home/radio/radioTap.dart';
 import 'package:islami_app/ui/home/sebha/sebhaTap.dart';
+import 'package:islami_app/ui/home/settings/SettingTap.dart';
 
 class HomeScreen extends StatefulWidget {
  static const String routeName = 'home';
@@ -19,7 +21,10 @@ class _HomeScreenState extends State<HomeScreen> {
     return Container(
       decoration: BoxDecoration(
         image: DecorationImage(
-          image: AssetImage('assets/images/default_bg.png'),
+          image: AssetImage(
+              MyThemeData.isDarkEnabled?
+              'assets/images/dark_bg.png':
+              'assets/images/default_bg.png'),
           fit: BoxFit.fill,
         ),
       ),
@@ -47,6 +52,10 @@ class _HomeScreenState extends State<HomeScreen> {
             BottomNavigationBarItem(
                 backgroundColor: Theme.of(context).primaryColor,
                 icon: ImageIcon(AssetImage('assets/images/icon_radio.png')),label: 'Radio'),
+            BottomNavigationBarItem(
+                backgroundColor: Theme.of(context).primaryColor,
+                icon: Icon(Icons.settings),
+                label: 'Settings'),
           ],
         ),
         body: tabs[selectedTapIndex],
@@ -58,5 +67,6 @@ class _HomeScreenState extends State<HomeScreen> {
     HadethTab(),
     SebhaTap(),
     RadioTap(),
+    SettingTap(),
   ];
 }

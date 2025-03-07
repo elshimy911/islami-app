@@ -1,0 +1,27 @@
+import 'package:flutter/cupertino.dart';
+import 'package:flutter/material.dart';
+import 'package:islami_app/ui/HadethDetails/HadethDetailsScreen.dart';
+
+import '../../ChapterDetails/ChapterdetailsScreen.dart';
+import 'Hadeth.dart';
+
+class HadethTitleWidget extends StatelessWidget {
+  Hadeth hadeth;
+   HadethTitleWidget(this.hadeth);
+  @override
+  Widget build(BuildContext context) {
+    return InkWell(
+      onTap: (){
+        Navigator.of(context).pushNamed(HadethDetailsScreen.routeName,
+        arguments: hadeth
+        );
+      },
+      child: Container(
+        padding: EdgeInsets.all(8),
+          alignment: Alignment.center,
+          child: Text(hadeth.title,
+          style: Theme.of(context).textTheme.titleMedium,
+          )),
+    );
+  }
+}
